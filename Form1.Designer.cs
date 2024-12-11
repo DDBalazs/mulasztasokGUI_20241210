@@ -37,17 +37,17 @@
             this.nemigazolt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.osszeshiany = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rtbadatok = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btsave = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lboraksz = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.rtbtanulok = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lboraksz = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.txnev = new System.Windows.Forms.TextBox();
             this.txosztaly = new System.Windows.Forms.TextBox();
             this.txigazolt = new System.Windows.Forms.TextBox();
@@ -127,14 +127,15 @@
             this.rtbadatok.TabIndex = 2;
             this.rtbadatok.Text = "";
             // 
-            // button1
+            // btsave
             // 
-            this.button1.Location = new System.Drawing.Point(797, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 182);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Mentés";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btsave.Location = new System.Drawing.Point(797, 29);
+            this.btsave.Name = "btsave";
+            this.btsave.Size = new System.Drawing.Size(124, 182);
+            this.btsave.TabIndex = 3;
+            this.btsave.Text = "Mentés";
+            this.btsave.UseVisualStyleBackColor = true;
+            this.btsave.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -194,6 +195,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Összes hiányzása adott napon: ";
             // 
+            // rtbtanulok
+            // 
+            this.rtbtanulok.Location = new System.Drawing.Point(187, 106);
+            this.rtbtanulok.Name = "rtbtanulok";
+            this.rtbtanulok.Size = new System.Drawing.Size(145, 109);
+            this.rtbtanulok.TabIndex = 3;
+            this.rtbtanulok.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(184, 90);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Tanulók";
+            // 
+            // lboraksz
+            // 
+            this.lboraksz.AutoSize = true;
+            this.lboraksz.Location = new System.Drawing.Point(12, 124);
+            this.lboraksz.Name = "lboraksz";
+            this.lboraksz.Size = new System.Drawing.Size(81, 13);
+            this.lboraksz.TabIndex = 1;
+            this.lboraksz.Text = "Órák száma: ";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -205,38 +232,13 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Legtöbb hiányzás";
             // 
-            // lboraksz
-            // 
-            this.lboraksz.AutoSize = true;
-            this.lboraksz.Location = new System.Drawing.Point(12, 124);
-            this.lboraksz.Name = "lboraksz";
-            this.lboraksz.Size = new System.Drawing.Size(81, 13);
-            this.lboraksz.TabIndex = 1;
-            this.lboraksz.Text = "Órák száma: ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(184, 90);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Tanulók";
-            // 
-            // rtbtanulok
-            // 
-            this.rtbtanulok.Location = new System.Drawing.Point(187, 106);
-            this.rtbtanulok.Name = "rtbtanulok";
-            this.rtbtanulok.Size = new System.Drawing.Size(145, 109);
-            this.rtbtanulok.TabIndex = 3;
-            this.rtbtanulok.Text = "";
-            // 
             // txnev
             // 
             this.txnev.Location = new System.Drawing.Point(624, 26);
             this.txnev.Name = "txnev";
             this.txnev.Size = new System.Drawing.Size(137, 20);
             this.txnev.TabIndex = 10;
+            this.txnev.TextChanged += new System.EventHandler(this.txnev_TextChanged);
             // 
             // txosztaly
             // 
@@ -286,7 +288,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btsave);
             this.Controls.Add(this.rtbadatok);
             this.Controls.Add(this.dgvadatok);
             this.Controls.Add(this.label1);
@@ -315,7 +317,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nemigazolt;
         private System.Windows.Forms.DataGridViewTextBoxColumn osszeshiany;
         private System.Windows.Forms.RichTextBox rtbadatok;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btsave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

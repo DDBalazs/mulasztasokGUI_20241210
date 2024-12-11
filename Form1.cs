@@ -97,5 +97,60 @@ namespace mulasztasokGUI_20241210
 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(txnev.Text.Length == 0)
+            {
+                MessageBox.Show("Nem adtál meg nevet!","BAJ",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                txnev.Focus();
+            }
+            else if(txosztaly.Text.Length == 0)
+            {
+                MessageBox.Show("Nem adtál meg osztályt!","BAJ",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                txosztaly.Focus();
+            }
+            else if(cbhanyadik.SelectedItem == null)
+            {
+                MessageBox.Show("Nem választottál ki napot","BAJ",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            else if(txigazolt.Text.Length == 0)
+            {
+                MessageBox.Show("Nem adtál meg igazolt hiányzást!", "BBAJ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(txnemigaolt.Text.Length == 0)
+            {
+                MessageBox.Show("NEm adtál meg igazolatlan hiányzásr!","Baj",MessageBoxButtons.OK,MessageBoxIcon.Error) ;
+            }
+            else
+            {
+                FileStream sr = new FileStream("..\\..\\src\\szeptember.txt", FileMode.Append);
+                StreamWriter sw = new StreamWriter(sr);
+                sw.Write("\n"+txnev.Text+";"+txosztaly.Text+";"+cbhanyadik.SelectedItem.ToString()+";"+txigazolt.Text+";"+txnemigaolt.Text);
+
+                sw.Close();
+                sr.Close();
+
+                txnev.Clear();
+                txosztaly.Clear();
+                cbhanyadik.Items.Clear;
+                txigazolt.Clear();
+                txnemigaolt.Clear();
+                rtbadatok.Clear();
+                dgvadatok.Rows.Clear();
+                rtbtanulok.Clear();
+
+
+                betoltes();
+
+
+                MessageBox.Show("Az adatok mentése sikeresen megtörtént!", "GRATULA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txnev_TextChanged(object sender, EventArgs e)
+        {
+         
+        }
     }
 }
